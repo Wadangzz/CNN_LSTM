@@ -2,6 +2,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 
+def fft_loss(pred, target):
+    pred_fft = torch.fft.fft(pred, dim=1)
+    target_fft = torch.fft.fft(target, dim=1)
+    return torch.mean(torch.abs(pred_fft - target_fft))
+
 class CNNLSTM(nn.Module):
 
     def __init__(self, input_size, hidden_size, num_layers, output_size):
