@@ -59,7 +59,7 @@ X, Y = create_dataset(y, seq_length, pred_length)
 X = torch.FloatTensor(X).view(-1, seq_length, 1).to(device) # (batch_size, seq_len, input_size)
 Y = torch.FloatTensor(Y).to(device) # (batch_size, output_size)
 
-epochs = 200
+epochs = 300
 batch_size = 64
 
 dataset = TensorDataset(X, Y)
